@@ -1,0 +1,26 @@
+{
+  "name": "contatooh",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Walter Gandarella <walter.wgbn@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/wgbn/estudando-mean",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+"dependencies": {
+    "angular": "1.3",
+    "bootstrap": "3.3",
+    "angular-route": "1.3",
+    "angular-resource": "1.3"
+  }
+}
