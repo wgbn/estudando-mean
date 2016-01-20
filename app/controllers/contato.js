@@ -1,57 +1,62 @@
-var contatos = [
-    {_id: 1, nome: 'contato 1', email: 'contato1@gmail.com'},
-    {_id: 2, nome: 'contato 2', email: 'contato2@gmail.com'},
-    {_id: 3, nome: 'contato 3', email: 'contato3@gmail.com'},
-];
-
-module.exports = function(){
+module.exports = function(app){
+    var Contato = app.models.contato;
     var controller = {};
-    var ID_CONTATO_INC = 3;
 
     controller.listaContatos = function(req, res){
-        console.log('/contatos');
-        res.json(contatos);
+        Contato.find().populate('emergencia').exec()
+            .then(function success(contatos){
+                res.json(contatos);
+            }, function error(erro){
+                console.log(erro);
+                res.status(500).json(erro);
+            });
     };
 
     controller.obtemContatos = function(req, res){
-        console.log('/contatos/'+req.params.id);
-        var _id = req.params.id;
-        var contato = contatos.filter(function(contato){
-            return contato._id == _id;
-        })[0];
-
-        contato ? res.json(contato) : res.sendStatus(404).send('contato não encontrado');
+        var _idC = req.params.id;
+        Contato.findById(_idC).exec()
+            .then(function success(contato){
+                if (!contato) throw new Error("Contato não encontrado");
+                res.json(contato);
+            }, function error(erro){
+                console.log(erro);
+                res.status(404).json(erro);
+            });
     };
 
     controller.removeContato = function(req, res){
-        console.log('/contatos/'+req.params.id);
-        var idContato = req.params.id;
-        contatos = contatos.filter(function(contato){
-            return contato._id != idContato;
-        });
-        res.sendStatus(204).end();
+        var _idC = req.params.id;
+        Contato.remove({"_id": _idC}).exec()
+            .then(function success(){
+                res.end();
+            }, function error(erro){
+                console.log(erro);
+                res.status(500).json(erro);
+            });
     };
 
     controller.salvaContato = function(req, res){
-        var contato = req.body;
-        contato = contato._id ? atualiza(contato) : adiciona(contato);
-        res.json(contato);
+        var _idC = req.body._id;
+        req.body.emergencia = req.body.emergencia || null;
+
+        if (_idC){
+            Contato.findByIdAndUpdate(_idC, req.body).exec()
+                .then(function success(contato){
+                    res.json(contato);
+                }, function error(erro){
+                    console.log(erro);
+                    res.status(500).json(erro);
+                });
+        } else {
+            Contato.create(req.body)
+                .then(function success(contato){
+                    res.status(201).json(contato);
+                }, function error(erro){
+                    console.log(erro);
+                    res.status(500).json(erro);
+                });
+        }
     };
-
-    function adiciona(_contato){
-        _contato._id = ++ID_CONTATO_INC;
-        contatos.push(_contato);
-        return _contato;
-    }
-
-    function atualiza(_contato){
-        contatos = contatos.map(function(contato){
-            if (contato._id == _contato._id)
-                contato = _contato;
-            return contato;
-        });
-        return _contato;
-    }
 
     return controller;
 };

@@ -1,13 +1,15 @@
+var verificaAutenticacao = require('../../config/auth');
+
 module.exports = function(app){
     var controller = app.controllers.contato;
 
     app.route('/contatos')
-        .get(controller.listaContatos)
-        .post(controller.salvaContato)
+        .get(verificaAutenticacao, controller.listaContatos)
+        .post(verificaAutenticacao, controller.salvaContato)
     ;
 
     app.route('/contatos/:id')
-        .get(controller.obtemContatos)
-        .delete(controller.removeContato)
+        .get(verificaAutenticacao, controller.obtemContatos)
+        .delete(verificaAutenticacao, controller.removeContato)
     ;
 };

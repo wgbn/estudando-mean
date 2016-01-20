@@ -3,6 +3,7 @@ angular.module('contatooh').controller('ContatoCtrl', function($scope, $routePar
 
     // escopo
     $scope.contato = {};
+    $scope.contatos = [];
     $scope.mensagem = {texto: ''};
 
     $scope.salva = function(){
@@ -28,5 +29,9 @@ angular.module('contatooh').controller('ContatoCtrl', function($scope, $routePar
     } else {
         $scope.contato = new Contato();
     }
+
+    Contato.query(function(contatos){
+        $scope.contatos = contatos;
+    });
 
 });
