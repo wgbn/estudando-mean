@@ -8,10 +8,10 @@ before_install:
   - npm install -g grunt-cli
   - npm install -g karma-cli
   - npm install -g protractor
-  - webdrive-manager update
   - bower install
+  - webdrive-manager update
 before_script:
   - grunt
   - cd dist
 script:
-  - carma start config/karma.config.js --single-run --browsers PhantomJS
+  - karma start config/karma.config.js --single-run --browsers PhantomJS
