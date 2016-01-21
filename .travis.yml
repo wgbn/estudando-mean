@@ -1,17 +1,24 @@
 language: node_js
 node_js:
-  - 5.4.1
-notifications:
-  walter.wgbn@gmail.com
+- 0.1
+notifications: walter.wgbn@gmail.com
 before_install:
-  - npm install -g bower
-  - npm install -g grunt-cli
-  - npm install -g karma-cli
-  - npm install -g protractor
-  - bower install
-  - webdrive-manager update
+- npm install -g bower
+- bower install
 before_script:
-  - grunt
-  - cd dist
-script:
-  - karma start config/karma.config.js --single-run --browsers PhantomJS
+- grunt minifica
+before_deploy:
+  - git config --global user.email 'travis@travis-ci.com'
+  - git config --global user.name 'Travis CI'
+  - git checkout $TRAVIS_BRANCH
+  - git add --all
+  - git commit -m 'Travis Commmit'
+deploy:
+  provider: openshift
+  user: yota@yhg.biz
+  password:
+    secure: YOhDsnv960cUCLfBm7JAY2GUmpQULVEho6h/coU1v5d6nR2hufwBr5cNDLzW/1cQSA70uTZinTzn5gmDb20mCKZaC9ovo3HOfciXIyWXIKAqEPp4HOOrMI5sb/OaktgHLCTlKUFaqi/P3FrS+RLUcE66MLo7GgNBGF1q2E5YAYysejn57t89psEe9Dbqdk2N2+7AfghtKab1asanuemeYz26vy8yRy/CXT6nSUd9xsLGgWxsGM/xkBXaohSVutU7kD5WURHVrXmtSnRvcrnTZEfAuF1WHGoXvR593n78+DyMp+7PSOen4+zvZmDUlBTEiEZdhARPOqOu9qpv4FDFPcZCXpmIUhbIxJDbLOosy5suPIzT/df8u+w3NRyDCA+OEAzxeVeOUNKSlrYAPcmgBotwIEhHvrIo5VzXZU0MU5+c/TgNiEUZacGvQuMAX2eiMscmkUc1VqpV4IJUGKJKGZiNnPez7duySBENCJVcJE4fO5yfzpdzAaSVzuAvT+iIQtbogpbAZ11vj36ldP6iQEY/eUOjoW2NdEieUReosgE3gVeJxQk5GnYKj8wRhK4mghZb9n2TplNnIjqxMqUtatu+xykyuRXdnvdeUobRcNNW5AWQKGilKamOo1Bf+cYvuz/r5RMioeA2+vSpIxnHRGka+Ap4zRPaoRENjHEDoJE=
+  app: estudando-mean
+  domain: contatooh-wmean.rhcloud.com
+  on:
+    repo: wgbn/estudando-mean

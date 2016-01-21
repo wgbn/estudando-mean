@@ -52,7 +52,7 @@ node_modules/
 public/vendor/
 *.log
 .tmp/
-
+scripts/
 build/
 dist/
 

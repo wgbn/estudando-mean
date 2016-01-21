@@ -1,6 +1,7 @@
 var passport = require('passport');
 var Github   = require('passport-github');
 var mongoose = require('mongoose');
+var config = require('./config')();
 
 module.exports = function(){
     var Usuario = mongoose.model('Usuario');

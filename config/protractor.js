@@ -1,3 +1,5 @@
+var config = require('./config')();
+
 exports.config = {
     specs: ['../test/e2e/**/*.js'],
     onPrepare:  function(){
