@@ -9,6 +9,7 @@ before_install:
   - npm install -g karma-cli
   - npm install -g protractor
   - bower install
+  - 1
   - webdrive-manager update
 before_script:
   - grunt

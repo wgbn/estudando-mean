@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e8bc476-08e0-42b2-841a-31b2047c0b0d" name="Default" comment="delete pasta vendor, deve ser sempre instalada localmenrte via bower">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/spec/ContatoCtrlSpec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/e2e/pages/contatoPage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/e2e/contatoPageSpec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/e2e/contatosPageSpec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/protractor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/auth.ejs" afterPath="$PROJECT_DIR$/app/views/auth.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+    <list default="true" id="5e8bc476-08e0-42b2-841a-31b2047c0b0d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="contatooh.iws" />
@@ -95,8 +87,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42352942">
-              <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.29117647">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -480,7 +472,25 @@
       <option name="project" value="LOCAL" />
       <updated>1453381943266</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="testes unitarios e e2e">
+      <created>1453394693571</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1453394693571</updated>
+    </task>
+    <task id="LOCAL-00013" summary="travis">
+      <created>1453397145053</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1453397145053</updated>
+    </task>
+    <task id="LOCAL-00014" summary="travis">
+      <created>1453397313356</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1453397313356</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -528,7 +538,9 @@
     <MESSAGE value=".gitignore" />
     <MESSAGE value="usando grunt para automatizar tarefas" />
     <MESSAGE value="gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
+    <MESSAGE value="testes unitarios e e2e" />
+    <MESSAGE value="travis" />
+    <option name="LAST_COMMIT_MESSAGE" value="travis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -920,8 +932,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42352942">
-          <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.29117647">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
