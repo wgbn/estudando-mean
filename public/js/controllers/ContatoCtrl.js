@@ -11,6 +11,7 @@ angular.module('contatooh').controller('ContatoCtrl', function($scope, $routePar
             .then(function(){
                 $scope.mensagem.texto = "Salvo com sucesso!";
                 $scope.contato = new Contato();
+                $scope.$broadcast('contatoSalvo');
             })
             .catch(function(erro){
                 console.log(erro);
