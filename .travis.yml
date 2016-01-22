@@ -1,12 +1,13 @@
 language: node_js
 node_js:
-- 0.1
+  - 5.4.1
 notifications: walter.wgbn@gmail.com
 before_install:
-- npm install -g bower
-- bower install
+  - npm install -g bower
+  - npm install -g grunt
+  - bower install
 before_script:
-- grunt minifica
+  - grunt minifica
 before_deploy:
   - git config --global user.email 'travis@travis-ci.com'
   - git config --global user.name 'Travis CI'
